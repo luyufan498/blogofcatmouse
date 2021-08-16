@@ -1,3 +1,8 @@
+<div align="center">
+  <img width="100%" height="100%" src="cover-1.png">
+</div>
+<br />
+
 # 【从零开始的Vitis 2021】手把手教你安装Vitis AI GPU服务器 
 ## 前言
 如果你需要安装一个用于运行Vitis AI的GPU服务器，有以下几点需要注意：
@@ -256,7 +261,7 @@ git clone --recurse-submodules https://github.com/Xilinx/Vitis-AI
 cd Vitis-AI
 ```
 
-根据脚本本地生成GPU版本的镜像
+根据脚本本地生成GPU版本的镜像 （需要1-3小时）
 ```
 cd setup/docker
 ./docker_build_gpu.sh
@@ -265,5 +270,7 @@ cd setup/docker
 运行GPU版本  
 `./docker_run.sh xilinx/vitis-ai-gpu:latest`
 
+成功后你会看到Vitis AI logo：  
+![image](https://github.com/luyufan498/blogofcatmouse/blob/main/VitisInstallGuide/SetupYourFirstGPUServer/finalsuccess.png)
 
 
