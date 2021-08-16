@@ -46,10 +46,11 @@
 `sudo vim /etc/apt/apt.conf.d/10periodic`  
 
 修改内容为：  
-`  
-APT::Periodic::Update-Package-Lists "0"; `   
-`APT::Periodic::Download-Upgradeable-Packages "0";`    
-`APT::Periodic::AutocleanInterval "0"; `  
+``` 
+APT::Periodic::Update-Package-Lists "0";
+APT::Periodic::Download-Upgradeable-Packages "0";  
+APT::Periodic::AutocleanInterval "0"; 
+```
 
 手动更新列表（常用命令）：
 `sudo apt update`
@@ -101,8 +102,10 @@ APT::Periodic::Update-Package-Lists "0"; `
 
 添加下面两行：
 
-`export PATH=/usr/local/cuda-11.4/bin${PATH:+:${PATH}}`  
-`export LD_LIBRARY_PATH=/usr/local/cuda-11.4/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}`
+```
+export PATH=/usr/local/cuda-11.4/bin${PATH:+:${PATH}}
+export LD_LIBRARY_PATH=/usr/local/cuda-11.4/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+```
 
 4. 重新打开终端或者Source这个文件：  
 `source ~/.bashrc`
@@ -117,11 +120,11 @@ APT::Periodic::Update-Package-Lists "0"; `
 首先前往CUDNN网站下载相关安装包： https://developer.nvidia.com/rdp/cudnn-download （需要注册账号并且登录）
 
 
-下载runtime包：  
-`wget https://developer.nvidia.com/compute/machine-learning/cudnn/secure/8.2.2/11.4_07062021/Ubuntu18_04-x64/libcudnn8_8.2.2.26-1+cuda11.4_amd64.deb`
-
-下载dev包：
-`wget https://developer.nvidia.com/compute/machine-learning/cudnn/secure/8.2.2/11.4_07062021/Ubuntu18_04-x64/libcudnn8-dev_8.2.2.26-1+cuda11.4_amd64.deb`
+下载runtime 和 dev包：  
+```
+wget https://developer.nvidia.com/compute/machine-learning/cudnn/secure/8.2.2/11.4_07062021/Ubuntu18_04-x64/libcudnn8_8.2.2.26-1+cuda11.4_amd64.deb
+wget https://developer.nvidia.com/compute/machine-learning/cudnn/secure/8.2.2/11.4_07062021/Ubuntu18_04-x64/libcudnn8-dev_8.2.2.26-1+cuda11.4_amd64.deb
+```
 
 
 安装runtime  环境
@@ -153,32 +156,38 @@ Anaconda的按照参考官网即可：
 ` sudo apt-get remove docker docker-engine docker.io containerd runc`
 
 安装依赖包  
-
-`sudo apt-get install \
+```
+sudo apt-get install \
     apt-transport-https \
     ca-certificates \
     curl \
     gnupg \
-    lsb-release`
+    lsb-release
+```
 
 添加 GPG key  
 ` curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg`
 
 设置稳定版仓库  
-`echo \
+```echo \
   "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
-  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null`
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+  ```
 
 
 安装docker  
-`sudo apt-get update`  
-`sudo apt-get install docker-ce docker-ce-cli containerd.io`
+```
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io
+```
 
 
 添加用户组  
-`sudo groupadd docker`  
-`sudo usermod -aG docker $USER`  
-`newgrp docker `
+```
+sudo groupadd docker  
+sudo usermod -aG docker $USER
+newgrp docker
+```
 
 测试  
  `docker run hello-world`
@@ -253,7 +262,8 @@ cd setup/docker
 ./docker_build_gpu.sh
 ```
 
-运行GPU版本
+运行GPU版本  
 `./docker_run.sh xilinx/vitis-ai-gpu:latest`
+
 
 
