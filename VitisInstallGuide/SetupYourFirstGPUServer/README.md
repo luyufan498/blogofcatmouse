@@ -17,7 +17,7 @@
 
 
 
-## 安装硬件&安装系统
+## 视频版教程
 参考本人视频：https://www.bilibili.com/video/BV1UA411w7mA/
 系统版本：(ubuntu 18.04)
 
